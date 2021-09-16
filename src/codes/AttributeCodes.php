@@ -2,7 +2,7 @@
 
 namespace arslanimamutdinov\ISOStandardUtilities\codes;
 
-interface AttributeCodes
+abstract class AttributeCodes
 {
     public const ATTRIBUTE_ALPHA2 = 'alpha2';
     public const ATTRIBUTE_ALPHA3 = 'alpha3';
