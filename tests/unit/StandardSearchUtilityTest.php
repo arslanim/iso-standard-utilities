@@ -14,6 +14,132 @@ use PHPUnit\Framework\TestCase;
 class StandardSearchUtilityTest extends TestCase
 {
     /**
+     * @dataProvider getTestGetByAlpha2
+     * @param array $standardsData
+     * @param string $alpha2
+     * @param array|null $expectedResult
+     */
+    public function testGetByAlpha2(array $standardsData, string $alpha2, ?array $expectedResult): void
+    {
+        $this->assertEquals(
+            $expectedResult,
+            StandardSearchUtility::getByAlpha2(
+                $standardsData,
+                $alpha2
+            )
+        );
+    }
+
+    public function getTestGetByAlpha2(): array
+    {
+        return [
+            [
+                'standardsData' => [
+                    [
+                        AttributeCodes::ATTRIBUTE_NAME => '1',
+                        AttributeCodes::ATTRIBUTE_ALPHA2 => '2',
+                        AttributeCodes::ATTRIBUTE_ALPHA3 => '3',
+                        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => '4',
+                    ],
+                    [
+                        AttributeCodes::ATTRIBUTE_NAME => '5',
+                        AttributeCodes::ATTRIBUTE_ALPHA2 => '6',
+                        AttributeCodes::ATTRIBUTE_ALPHA3 => '7',
+                        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => '8',
+                    ],
+                ],
+                'alpha2' => '2',
+                'expectedResult' => [
+                    AttributeCodes::ATTRIBUTE_NAME => '1',
+                    AttributeCodes::ATTRIBUTE_ALPHA2 => '2',
+                    AttributeCodes::ATTRIBUTE_ALPHA3 => '3',
+                    AttributeCodes::ATTRIBUTE_NUMERIC_CODE => '4',
+                ],
+            ],
+            [
+                'standardsData' => [
+                    [
+                        AttributeCodes::ATTRIBUTE_NAME => '1',
+                        AttributeCodes::ATTRIBUTE_ALPHA2 => '10',
+                        AttributeCodes::ATTRIBUTE_ALPHA3 => '3',
+                        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => '4',
+                    ],
+                    [
+                        AttributeCodes::ATTRIBUTE_NAME => '5',
+                        AttributeCodes::ATTRIBUTE_ALPHA2 => '6',
+                        AttributeCodes::ATTRIBUTE_ALPHA3 => '7',
+                        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => '8',
+                    ],
+                ],
+                'alpha2' => '2',
+                'expectedResult' => null,
+            ],
+            [
+                'standardsData' => [],
+                'alpha2' => '2',
+                'expectedResult' => null,
+            ],
+            [
+                'standardsData' => [
+                    [],
+                    [],
+                    [],
+                ],
+                'alpha2' => '2',
+                'expectedResult' => null,
+            ],
+            [
+                'standardsData' => [
+                    [
+                        AttributeCodes::ATTRIBUTE_NAME => '1',
+                        AttributeCodes::ATTRIBUTE_ALPHA2 => '2',
+                        AttributeCodes::ATTRIBUTE_ALPHA3 => '3',
+                        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => '4',
+                    ],
+                    [
+                        AttributeCodes::ATTRIBUTE_NAME => '5',
+                        AttributeCodes::ATTRIBUTE_ALPHA2 => '6',
+                        AttributeCodes::ATTRIBUTE_ALPHA3 => '7',
+                        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => '8',
+                    ],
+                    [
+                        AttributeCodes::ATTRIBUTE_NAME => '15',
+                        AttributeCodes::ATTRIBUTE_ALPHA2 => '16',
+                        AttributeCodes::ATTRIBUTE_ALPHA3 => '17',
+                        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => '18',
+                    ],
+                ],
+                'alpha2' => '',
+                'expectedResult' => null,
+            ],
+            [
+                'standardsData' => [
+                    [
+                        AttributeCodes::ATTRIBUTE_NAME => '1',
+                        AttributeCodes::ATTRIBUTE_ALPHA2 => '2',
+                        AttributeCodes::ATTRIBUTE_ALPHA3 => '3',
+                        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => '4',
+                    ],
+                    [
+                        AttributeCodes::ATTRIBUTE_NAME => '5',
+                        AttributeCodes::ATTRIBUTE_ALPHA2 => '6',
+                        AttributeCodes::ATTRIBUTE_ALPHA3 => '7',
+                        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => '8',
+                    ],
+                    [
+                        AttributeCodes::ATTRIBUTE_NAME => '15',
+                        AttributeCodes::ATTRIBUTE_ALPHA2 => '16',
+                        AttributeCodes::ATTRIBUTE_ALPHA3 => '17',
+                        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => '18',
+                    ],
+                ],
+                'alpha2' => '900',
+                'expectedResult' => null,
+            ],
+        ];
+    }
+
+    /**
      * @dataProvider getTestGetStandardsDataByAttributeCode
      * @param array $standardsData
      * @param string $attributeCode
@@ -176,6 +302,25 @@ class StandardSearchUtilityTest extends TestCase
                     AttributeCodes::ATTRIBUTE_ALPHA3 => '3',
                     AttributeCodes::ATTRIBUTE_NUMERIC_CODE => '4',
                 ],
+            ],
+            [
+                'standardsData' => [
+                    [
+                        'foo' => '',
+                        AttributeCodes::ATTRIBUTE_ALPHA2 => '2',
+                        AttributeCodes::ATTRIBUTE_ALPHA3 => '3',
+                        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => '4',
+                    ],
+                    [
+                        AttributeCodes::ATTRIBUTE_NAME => '5',
+                        AttributeCodes::ATTRIBUTE_ALPHA2 => '6',
+                        AttributeCodes::ATTRIBUTE_ALPHA3 => '7',
+                        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => '8',
+                    ],
+                ],
+                'attributeCode' => 'foo',
+                'value' => '1',
+                'expectedResult' => null,
             ],
         ];
     }

@@ -2,15 +2,24 @@
 
 namespace arslanimamutdinov\ISOStandardUtilities;
 
+use arslanimamutdinov\ISOStandardUtilities\codes\AttributeCodes;
+
 abstract class StandardSearchUtility
 {
+    public static function getByAlpha2(array $standardsData, string $alpha2): ?array
+    {
+        return self::getStandardsDataByAttributeCode($standardsData, AttributeCodes::ATTRIBUTE_ALPHA2, $alpha2);
+    }
+
     public static function getStandardsDataByAttributeCode(
         array $standardsData,
         string $attributeCode,
         string $value
     ): ?array {
         foreach ($standardsData as $standardData) {
-            if (($standardData[$attributeCode] ?? null) === $value) {
+            $standardDataValue = $standardData[$attributeCode] ?? null;
+
+            if ((!empty($standardDataValue) && ($standardDataValue === $value))) {
                 return $standardData;
             }
         }
