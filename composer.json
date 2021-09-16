@@ -1,0 +1,15 @@
+{
+    "name": "arslanimamutdinov/iso-standard-utilities",
+    "authors": [
+        {
+            "name": "Arslan Imamutdinov",
+            "email": "ara.imamutdinov@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "arslanimamutdinov\\ISOStandardUtilities\\": "src/"
+        }
+    }
+}
