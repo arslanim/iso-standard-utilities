@@ -51,6 +51,11 @@ abstract class StandardSearchUtility
         return self::existByAttributeCode($standardsData, AttributeCodes::ATTRIBUTE_ALPHA3, $alpha3);
     }
 
+    public static function existByNumericCode(array $standardsData, string $numericCode): bool
+    {
+        return self::existByAttributeCode($standardsData, AttributeCodes::ATTRIBUTE_NUMERIC_CODE, $numericCode);
+    }
+
     public static function existByAttributeCode(
         array $standardsData,
         string $attributeCode,
