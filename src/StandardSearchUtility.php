@@ -11,6 +11,11 @@ abstract class StandardSearchUtility
         return self::getStandardsDataByAttributeCode($standardsData, AttributeCodes::ATTRIBUTE_ALPHA2, $alpha2);
     }
 
+    public static function getByAlpha3(array $standardsData, string $alpha3): ?array
+    {
+        return self::getStandardsDataByAttributeCode($standardsData, AttributeCodes::ATTRIBUTE_ALPHA3, $alpha3);
+    }
+
     public static function getStandardsDataByAttributeCode(
         array $standardsData,
         string $attributeCode,
