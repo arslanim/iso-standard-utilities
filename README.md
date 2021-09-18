@@ -14,4 +14,5 @@ Summary:
 - Lines:   100.00% (14/14)
 
 Classes:
-- \arslanimamutdinov\ISOStandardUtilities::arslanimamutdinov\ISOStandardUtilities\StandardSearchUtility - Methods: 100.00% ( 8/ 8)   Lines: 100.00% ( 14/ 14)
+- \arslanimamutdinov\ISOStandardUtilities::arslanimamutdinov\ISOStandardUtilities\StandardSearchUtility
+   - Methods: 100.00% ( 8/ 8)   Lines: 100.00% ( 14/ 14)
