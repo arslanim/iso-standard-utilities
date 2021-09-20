@@ -836,14 +836,20 @@ class StandardSearchUtilityTest extends TestCase
         string $value,
         ?array $expectedResult
     ): void {
-        $this->assertEquals(
-            $expectedResult,
-            StandardSearchUtility::getStandardsDataByAttributeCode(
-                $standardsData,
-                $attributeCode,
-                $value
-            )
+        $utilityResult = StandardSearchUtility::getStandardsDataByAttributeCode(
+            $standardsData,
+            $attributeCode,
+            $value
         );
+        $serviceResult = $this->standardSearchUtilityService->getStandardsDataByAttributeCode(
+            $standardsData,
+            $attributeCode,
+            $value
+        );
+
+        $this->assertEquals($expectedResult, $utilityResult);
+        $this->assertEquals($expectedResult, $serviceResult);
+        $this->assertEquals($utilityResult, $serviceResult);
     }
 
     public function getTestGetStandardsDataByAttributeCode(): array
