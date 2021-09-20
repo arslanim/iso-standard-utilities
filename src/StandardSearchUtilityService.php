@@ -6,7 +6,16 @@ use arslanimamutdinov\ISOStandardUtilities\codes\AttributeCodes;
 
 class StandardSearchUtilityService
 {
-    public static function existByNumericCode(array $standardsData, string $numericCode): bool
+    public function existByAlpha3(array $standardsData, string $alpha3): bool
+    {
+        return StandardSearchUtility::existByAttributeCode(
+            $standardsData,
+            AttributeCodes::ATTRIBUTE_ALPHA3,
+            $alpha3
+        );
+    }
+
+    public function existByNumericCode(array $standardsData, string $numericCode): bool
     {
         return StandardSearchUtility::existByAttributeCode(
             $standardsData,
@@ -20,6 +29,10 @@ class StandardSearchUtilityService
         string $attributeCode,
         string $value
     ): bool {
-        return StandardSearchUtility::existByAttributeCode($standardsData, $attributeCode, $value);
+        return StandardSearchUtility::existByAttributeCode(
+            $standardsData,
+            $attributeCode,
+            $value
+        );
     }
 }
