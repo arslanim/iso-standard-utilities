@@ -34,10 +34,12 @@ class StandardSearchUtilityTest extends TestCase
      */
     public function testExistByNumericCode(array $standardsData, string $numericCode, bool $expectedResult): void
     {
-        $this->assertEquals(
-            $expectedResult,
-            StandardSearchUtility::existByNumericCode($standardsData, $numericCode)
-        );
+        $utilityResult = StandardSearchUtility::existByNumericCode($standardsData, $numericCode);
+        $serviceResult = $this->standardSearchUtilityService->existByNumericCode($standardsData, $numericCode);
+
+        $this->assertEquals($expectedResult, $utilityResult);
+        $this->assertEquals($expectedResult, $serviceResult);
+        $this->assertEquals($utilityResult, $serviceResult);
     }
 
     public function getTestExistByNumericCode(): array
