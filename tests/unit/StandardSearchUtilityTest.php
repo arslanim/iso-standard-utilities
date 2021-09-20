@@ -458,13 +458,12 @@ class StandardSearchUtilityTest extends TestCase
      */
     public function testGetByAlpha3(array $standardsData, string $alpha3, ?array $expectedResult): void
     {
-        $this->assertEquals(
-            $expectedResult,
-            StandardSearchUtility::getByAlpha3(
-                $standardsData,
-                $alpha3
-            )
-        );
+        $utilityResult = StandardSearchUtility::getByAlpha3($standardsData, $alpha3);
+        $serviceResult = $this->standardSearchUtilityService->getByAlpha3($standardsData, $alpha3);
+
+        $this->assertEquals($expectedResult, $utilityResult);
+        $this->assertEquals($expectedResult, $serviceResult);
+        $this->assertEquals($utilityResult, $serviceResult);
     }
 
     public function getTestGetByAlpha3(): array
