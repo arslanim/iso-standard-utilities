@@ -1019,10 +1019,12 @@ class StandardSearchUtilityTest extends TestCase
         string $value,
         bool $expectedResult
     ): void {
-        $this->assertEquals(
-            $expectedResult,
-            StandardSearchUtility::existByAttributeCode($standardsData, $attributeCode, $value)
-        );
+        $utilityResult = StandardSearchUtility::existByAttributeCode($standardsData, $attributeCode, $value);
+        $serviceResult = $this->standardSearchUtilityService->existByAttributeCode($standardsData, $attributeCode, $value);
+
+        $this->assertEquals($expectedResult, $utilityResult);
+        $this->assertEquals($expectedResult, $serviceResult);
+        $this->assertEquals($utilityResult, $serviceResult);
     }
 
     public function getStandardsData(): array
