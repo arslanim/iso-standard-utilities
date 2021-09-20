@@ -4,6 +4,11 @@ namespace arslanimamutdinov\ISOStandardUtilities;
 
 class StandardSearchUtilityService
 {
+    public function getByAlpha2(array $standardsData, string $alpha2): ?array
+    {
+        return StandardSearchUtility::getByAlpha2($standardsData, $alpha2);
+    }
+
     public function getByAlpha3(array $standardsData, string $alpha3): ?array
     {
         return StandardSearchUtility::getByAlpha3($standardsData, $alpha3);
