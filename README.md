@@ -288,9 +288,9 @@ Please make sure to update tests as appropriate.
 
 ## Code coverage information
 Summary:                 
-- Classes: 100.00% (1/1)  
-- Methods: 100.00% (8/8)  
-- Lines:   100.00% (14/14)
+- Classes: 100.00% (2/2)  
+- Methods: 100.00% (26/26)
+- Lines:   100.00% (48/48)
 
 Classes:
 - StandardSearchUtility
