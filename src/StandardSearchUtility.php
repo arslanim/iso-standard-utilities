@@ -6,6 +6,19 @@ use arslanimamutdinov\ISOStandardUtilities\codes\AttributeCodes;
 
 abstract class StandardSearchUtility
 {
+    public static function getAllAttributesByCode(array $standardsData, string $attributeCode): array
+    {
+        $list = [];
+
+        foreach ($standardsData as $standardData) {
+            if (isset($standardData[$attributeCode]) && !empty($standardData[$attributeCode])) {
+                $list[] = $standardData[$attributeCode];
+            }
+        }
+
+        return $list;
+    }
+
     public static function getByAlpha2(array $standardsData, string $alpha2): ?array
     {
         return self::getStandardsDataByAttributeCode($standardsData, AttributeCodes::ATTRIBUTE_ALPHA2, $alpha2);
