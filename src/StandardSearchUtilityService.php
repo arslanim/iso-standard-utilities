@@ -6,6 +6,11 @@ use arslanimamutdinov\ISOStandardUtilities\codes\AttributeCodes;
 
 class StandardSearchUtilityService
 {
+    public function getByNumericCode(array $standardsData, string $numericCode): ?array
+    {
+        return StandardSearchUtility::getByNumericCode($standardsData, $numericCode);
+    }
+
     public function getStandardsDataByAttributeCode(
         array $standardsData,
         string $attributeCode,
