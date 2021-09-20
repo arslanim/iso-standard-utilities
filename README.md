@@ -16,6 +16,8 @@ Details:
 - AttributeCodes::ATTRIBUTE_NUMERIC_CODE - represents three-digit numeric code (which can be useful if you need to avoid using Latin script).
 
 StandardSearchUtility - class provides set of function for working with raw data standards.
+
+### getByAlpha2
 ```php
 public static function getByAlpha2(
     array $standardsData,
@@ -27,6 +29,8 @@ Input:
 - $alpha2 - two-letter code value;
 
 Return: found standard raw array data, suitable to input two-letter code value (or null if not found).
+
+### getByAlpha3
 ```php
 public static function getByAlpha3(
     array $standardsData,
@@ -38,6 +42,8 @@ Input:
 - $alpha3 - three-letter code value;
 
 Return: found standard raw array data, suitable to input three-letter code value (or null if not found).
+
+### getByNumericCode
 ```php
 public static function getByNumericCode(
     array $standardsData,
@@ -49,6 +55,8 @@ Input:
 - $numericCode - numeric code value;
 
 Return: found standard raw array data, suitable to input numeric code value (or null if not found).
+
+### getStandardsDataByAttributeCode
 ```php
 public static function getStandardsDataByAttributeCode(
     array $standardsData,
@@ -62,6 +70,8 @@ Input:
 - $value - code value
 
 Return: found standard raw array data, suitable to input code attribute name and code value (or null if not found).
+
+### existByAlpha2
 ```php
 public static function existByAlpha2(
     array $standardsData,
@@ -73,6 +83,8 @@ Input:
 - $alpha2 - two-letter code value;
 
 Return: true if standard raw data exist by two-letter code, false if not exist.
+
+### existByAlpha3
 ```php
 public static function existByAlpha3(
     array $standardsData,
@@ -84,6 +96,8 @@ Input:
 - $alpha3 - three-letter code value;
 
 Return: true if standard raw data exist by three-letter code, false if not exist.
+
+### existByNumericCode
 ```php
 public static function existByNumericCode(
     array $standardsData,
@@ -95,6 +109,8 @@ Input:
 - $numericCode - numeric code value;
 
 Return: true if standard raw data exist by numeric code, false if not exist.
+
+### existByAttributeCode
 ```php
 public static function existByAttributeCode(
     array $standardsData,
@@ -108,6 +124,8 @@ Input:
 - $value - code value
 
 Return: true if found standard raw array data exist, false if not exist.
+
+### getAllNames
 ```php
 public static function getAllNames(array $standardsData): array;
 ```
@@ -115,6 +133,8 @@ Input:
 - $standardsData - array standards raw dataset;
 
 Return: standards names string[].
+
+### getAllNumericCodes
 ```php
 public static function getAllNumericCodes(array $standardsData): array;
 ```
@@ -122,6 +142,8 @@ Input:
 - $standardsData - array standards raw dataset;
 
 Return: standards numeric codes string[].
+
+### getAllAlpha3
 ```php
 public static function getAllAlpha3(array $standardsData): array;
 ```
@@ -129,6 +151,8 @@ Input:
 - $standardsData - array standards raw dataset;
 
 Return: standards Alpha3 codes string[].
+
+### getAllAlpha2
 ```php
 public static function getAllAlpha2(array $standardsData): array
 ```
@@ -136,6 +160,8 @@ Input:
 - $standardsData - array standards raw dataset;
 
 Return: standards Alpha2 codes string[].
+
+### getAllAttributesByCode
 ```php
 public static function getAllAttributesByCode(array $standardsData, string $attributeCode): array;
 ```
