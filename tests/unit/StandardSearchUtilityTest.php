@@ -4,6 +4,7 @@ namespace arslanimamutdinov\ISOStandardUtilities\tests\unit;
 
 use arslanimamutdinov\ISOStandardUtilities\codes\AttributeCodes;
 use arslanimamutdinov\ISOStandardUtilities\StandardSearchUtility;
+use arslanimamutdinov\ISOStandardUtilities\StandardSearchUtilityService;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -13,6 +14,18 @@ use PHPUnit\Framework\TestCase;
  */
 class StandardSearchUtilityTest extends TestCase
 {
+    /**
+     * @var StandardSearchUtilityService
+     */
+    private $standardSearchUtilityService;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->standardSearchUtilityService = new StandardSearchUtilityService();
+    }
+
     /**
      * @dataProvider getTestExistByNumericCode
      * @param array $standardsData
