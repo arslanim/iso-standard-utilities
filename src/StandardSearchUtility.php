@@ -15,6 +15,10 @@ abstract class StandardSearchUtility
         return self::getAllAttributesByCode($standardsData, AttributeCodes::ATTRIBUTE_NAME);
     }
 
+    /**
+     * @param string[] $standardsData
+     * @return array
+     */
     public static function getAllNumericCodes(array $standardsData): array
     {
         return self::getAllAttributesByCode($standardsData, AttributeCodes::ATTRIBUTE_NUMERIC_CODE);
