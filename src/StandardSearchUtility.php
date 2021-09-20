@@ -7,8 +7,8 @@ use arslanimamutdinov\ISOStandardUtilities\codes\AttributeCodes;
 abstract class StandardSearchUtility
 {
     /**
-     * @param string[] $standardsData
-     * @return array
+     * @param array $standardsData
+     * @return string[]
      */
     public static function getAllNames(array $standardsData): array
     {
@@ -16,24 +16,37 @@ abstract class StandardSearchUtility
     }
 
     /**
-     * @param string[] $standardsData
-     * @return array
+     * @param array $standardsData
+     * @return string[]
      */
     public static function getAllNumericCodes(array $standardsData): array
     {
         return self::getAllAttributesByCode($standardsData, AttributeCodes::ATTRIBUTE_NUMERIC_CODE);
     }
 
+    /**
+     * @param array $standardsData
+     * @return string[]
+     */
     public static function getAllAlpha3(array $standardsData): array
     {
         return self::getAllAttributesByCode($standardsData, AttributeCodes::ATTRIBUTE_ALPHA3);
     }
 
+    /**
+     * @param array $standardsData
+     * @return string[]
+     */
     public static function getAllAlpha2(array $standardsData): array
     {
         return self::getAllAttributesByCode($standardsData, AttributeCodes::ATTRIBUTE_ALPHA2);
     }
 
+    /**
+     * @param array $standardsData
+     * @param string $attributeCode
+     * @return string[]
+     */
     public static function getAllAttributesByCode(array $standardsData, string $attributeCode): array
     {
         $list = [];
