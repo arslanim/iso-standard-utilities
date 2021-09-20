@@ -172,13 +172,12 @@ class StandardSearchUtilityTest extends TestCase
      */
     public function testGetByNumericCode(array $standardsData, string $numericCode, ?array $expectedResult): void
     {
-        $this->assertEquals(
-            $expectedResult,
-            StandardSearchUtility::getByNumericCode(
-                $standardsData,
-                $numericCode
-            )
-        );
+        $utilityResult = StandardSearchUtility::getByNumericCode($standardsData, $numericCode);
+        $serviceResult = $this->standardSearchUtilityService->getByNumericCode($standardsData, $numericCode);
+
+        $this->assertEquals($expectedResult, $utilityResult);
+        $this->assertEquals($expectedResult, $serviceResult);
+        $this->assertEquals($utilityResult, $serviceResult);
     }
 
     public function getTestGetByNumericCode(): array
