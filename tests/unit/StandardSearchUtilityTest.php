@@ -27,6 +27,78 @@ class StandardSearchUtilityTest extends TestCase
     }
 
     /**
+     * @dataProvider getTestGetAllAlpha2Data
+     * @param array $standardsData
+     * @param array $expectedResult
+     */
+    public function testGetAllAlpha2(array $standardsData, array $expectedResult): void
+    {
+        $utilityResult = StandardSearchUtility::getAllAlpha2($standardsData);
+
+        $this->assertEquals($expectedResult, $utilityResult);
+    }
+
+    public function getTestGetAllAlpha2Data(): array
+    {
+        return [
+            [
+                'standardsData' => [
+                    [
+                        AttributeCodes::ATTRIBUTE_NAME => '1',
+                        AttributeCodes::ATTRIBUTE_ALPHA2 => '2',
+                        AttributeCodes::ATTRIBUTE_ALPHA3 => '3',
+                        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => '4',
+                    ],
+                    [
+                        AttributeCodes::ATTRIBUTE_NAME => '5',
+                        AttributeCodes::ATTRIBUTE_ALPHA2 => '6',
+                        AttributeCodes::ATTRIBUTE_ALPHA3 => '7',
+                        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => '8',
+                    ],
+                    [
+                        AttributeCodes::ATTRIBUTE_NAME => '15',
+                        AttributeCodes::ATTRIBUTE_ALPHA2 => '16',
+                        AttributeCodes::ATTRIBUTE_ALPHA3 => '17',
+                        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => '18',
+                    ],
+                ],
+                'expectedResult' => [
+                    '2',
+                    '6',
+                    '16',
+                ],
+            ],
+            [
+                'standardsData' => [
+                    [
+                        AttributeCodes::ATTRIBUTE_NAME => '1',
+                        AttributeCodes::ATTRIBUTE_ALPHA2 => '2',
+                        AttributeCodes::ATTRIBUTE_ALPHA3 => '3',
+                        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => '4',
+                    ],
+                ],
+                'expectedResult' => [
+                    '2',
+                ],
+            ],
+            [
+                'standardsData' => [
+                    [
+                        AttributeCodes::ATTRIBUTE_NAME => '1',
+                        AttributeCodes::ATTRIBUTE_ALPHA3 => '3',
+                        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => '4',
+                    ],
+                ],
+                'expectedResult' => [],
+            ],
+            [
+                'standardsData' => [],
+                'expectedResult' => [],
+            ],
+        ];
+    }
+
+    /**
      * @dataProvider getTestGetAllAttributesByCodeData
      * @param array $standardsData
      * @param string $attributeCode
@@ -72,6 +144,11 @@ class StandardSearchUtilityTest extends TestCase
                     '6',
                     '16',
                 ],
+            ],
+            [
+                'standardsData' => [],
+                'attributeCode' => AttributeCodes::ATTRIBUTE_ALPHA2,
+                'expectedResult' => [],
             ],
             [
                 'standardsData' => [
