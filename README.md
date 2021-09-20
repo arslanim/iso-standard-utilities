@@ -294,4 +294,6 @@ Summary:
 
 Classes:
 - StandardSearchUtility
-   - Methods: 100.00% ( 8/ 8)   Lines: 100.00% ( 14/ 14)
+   - Methods: 100.00% (13/13)   Lines: 100.00% ( 23/ 23)
+- StandardSearchUtilityService
+   - Methods: 100.00% (13/13)   Lines: 100.00% ( 25/ 25)
