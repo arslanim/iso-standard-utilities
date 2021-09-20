@@ -35,8 +35,11 @@ class StandardSearchUtilityTest extends TestCase
     public function testGetAllAttributesByCode(array $standardsData, string $attributeCode, array $expectedResult): void
     {
         $utilityResult = StandardSearchUtility::getAllAttributesByCode($standardsData, $attributeCode);
+        $serviceResult = $this->standardSearchUtilityService->getAllAttributesByCode($standardsData, $attributeCode);
 
         $this->assertEquals($expectedResult, $utilityResult);
+        $this->assertEquals($expectedResult, $serviceResult);
+        $this->assertEquals($utilityResult, $serviceResult);
     }
 
     public function getTestGetAllAttributesByCodeData(): array
