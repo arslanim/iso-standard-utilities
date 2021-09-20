@@ -6,6 +6,10 @@ use arslanimamutdinov\ISOStandardUtilities\codes\AttributeCodes;
 
 abstract class StandardSearchUtility
 {
+    /**
+     * @param string[] $standardsData
+     * @return array
+     */
     public static function getAllNames(array $standardsData): array
     {
         return self::getAllAttributesByCode($standardsData, AttributeCodes::ATTRIBUTE_NAME);

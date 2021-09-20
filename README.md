@@ -108,6 +108,20 @@ Input:
 - $value - code value
 
 Return: true if found standard raw array data exist, false if not exist.
+```php
+public static function getAllNames(array $standardsData): array;
+```
+Input:
+- $standardsData - array standards raw dataset;
+
+Return: standards names string[].
+```php
+public static function getAllNumericCodes(array $standardsData): array;
+```
+Input:
+- $standardsData - array standards raw dataset;
+
+Return: standards numeric codes string[].
 
 ## Usage examples
 ```php
