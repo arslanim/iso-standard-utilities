@@ -122,6 +122,28 @@ Input:
 - $standardsData - array standards raw dataset;
 
 Return: standards numeric codes string[].
+```php
+public static function getAllAlpha3(array $standardsData): array;
+```
+Input:
+- $standardsData - array standards raw dataset;
+
+Return: standards Alpha3 codes string[].
+```php
+public static function getAllAlpha2(array $standardsData): array
+```
+Input:
+- $standardsData - array standards raw dataset;
+
+Return: standards Alpha2 codes string[].
+```php
+public static function getAllAttributesByCode(array $standardsData, string $attributeCode): array;
+```
+Input:
+- $standardsData - array standards raw dataset;
+- $attributeCode - code attribute name;
+
+Return: standards attribute code value searched by attribute code name.
 
 ## Usage examples
 ```php
