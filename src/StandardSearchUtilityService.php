@@ -2,8 +2,6 @@
 
 namespace arslanimamutdinov\ISOStandardUtilities;
 
-use arslanimamutdinov\ISOStandardUtilities\codes\AttributeCodes;
-
 class StandardSearchUtilityService
 {
     public function getByNumericCode(array $standardsData, string $numericCode): ?array
@@ -25,27 +23,24 @@ class StandardSearchUtilityService
 
     public function existByAlpha2(array $standardsData, string $alpha2): bool
     {
-        return StandardSearchUtility::existByAttributeCode(
+        return StandardSearchUtility::existByAlpha2(
             $standardsData,
-            AttributeCodes::ATTRIBUTE_ALPHA2,
             $alpha2
         );
     }
 
     public function existByAlpha3(array $standardsData, string $alpha3): bool
     {
-        return StandardSearchUtility::existByAttributeCode(
+        return StandardSearchUtility::existByAlpha3(
             $standardsData,
-            AttributeCodes::ATTRIBUTE_ALPHA3,
             $alpha3
         );
     }
 
     public function existByNumericCode(array $standardsData, string $numericCode): bool
     {
-        return StandardSearchUtility::existByAttributeCode(
+        return StandardSearchUtility::existByNumericCode(
             $standardsData,
-            AttributeCodes::ATTRIBUTE_NUMERIC_CODE,
             $numericCode
         );
     }
