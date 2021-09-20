@@ -585,10 +585,12 @@ class StandardSearchUtilityTest extends TestCase
      */
     public function testExistByAlpha2(array $standardsData, string $alpha2, bool $expectedResult): void
     {
-        $this->assertEquals(
-            $expectedResult,
-            StandardSearchUtility::existByAlpha2($standardsData, $alpha2)
-        );
+        $utilityResult = StandardSearchUtility::existByAlpha2($standardsData, $alpha2);
+        $serviceResult = $this->standardSearchUtilityService->existByAlpha2($standardsData, $alpha2);
+
+        $this->assertEquals($expectedResult, $utilityResult);
+        $this->assertEquals($expectedResult, $serviceResult);
+        $this->assertEquals($utilityResult, $serviceResult);
     }
 
     public function getTestExistByAlpha2(): array
