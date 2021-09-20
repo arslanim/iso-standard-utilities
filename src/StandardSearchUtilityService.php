@@ -6,6 +6,15 @@ use arslanimamutdinov\ISOStandardUtilities\codes\AttributeCodes;
 
 class StandardSearchUtilityService
 {
+    public function existByAlpha2(array $standardsData, string $alpha2): bool
+    {
+        return StandardSearchUtility::existByAttributeCode(
+            $standardsData,
+            AttributeCodes::ATTRIBUTE_ALPHA2,
+            $alpha2
+        );
+    }
+
     public function existByAlpha3(array $standardsData, string $alpha3): bool
     {
         return StandardSearchUtility::existByAttributeCode(
