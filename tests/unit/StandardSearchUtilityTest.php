@@ -321,13 +321,12 @@ class StandardSearchUtilityTest extends TestCase
      */
     public function testExistByAlpha3(array $standardsData, string $alpha3, bool $expectedResult): void
     {
-        $this->assertEquals(
-            $expectedResult,
-            StandardSearchUtility::existByAlpha3(
-                $standardsData,
-                $alpha3
-            )
-        );
+        $utilityResult = StandardSearchUtility::existByAlpha3($standardsData, $alpha3);
+        $serviceResult = $this->standardSearchUtilityService->existByAlpha3($standardsData, $alpha3);
+
+        $this->assertEquals($expectedResult, $utilityResult);
+        $this->assertEquals($expectedResult, $serviceResult);
+        $this->assertEquals($utilityResult, $serviceResult);
     }
 
     public function getTestExistByAlpha3(): array
