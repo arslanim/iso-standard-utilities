@@ -335,8 +335,11 @@ class StandardSearchUtilityTest extends TestCase
     public function testGetAllByAlpha2Values(array $standardsData, array $values, array $expectedResult): void
     {
         $utilityResult = StandardSearchUtility::getAllByAlpha2Values($standardsData, $values);
+        $serviceResult = $this->standardSearchUtilityService->getAllByAlpha2Values($standardsData, $values);
 
         $this->assertEquals($expectedResult, $utilityResult);
+        $this->assertEquals($expectedResult, $serviceResult);
+        $this->assertEquals($utilityResult, $serviceResult);
     }
 
     public function getTestGetAllByAlpha2ValuesData(): array
