@@ -60,6 +60,22 @@ abstract class StandardSearchUtility
         return $list;
     }
 
+    public static function getAllByAttributeCodeValues(
+        array $standardsData,
+        string $attributeCode,
+        array $values
+    ): array {
+        $list = [];
+
+        foreach ($standardsData as $standardData) {
+            if (isset($standardData[$attributeCode]) &&  in_array($standardData[$attributeCode], $values)) {
+                $list[] = $standardData;
+            }
+        }
+
+        return $list;
+    }
+
     public static function getByAlpha2(array $standardsData, string $alpha2): ?array
     {
         return self::getStandardsDataByAttributeCode($standardsData, AttributeCodes::ATTRIBUTE_ALPHA2, $alpha2);
