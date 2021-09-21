@@ -62,6 +62,16 @@ abstract class StandardSearchUtility
 
     /**
      * @param array $standardsData
+     * @param string[] $values
+     * @return array
+     */
+    public static function getAllByAlpha2Values(array $standardsData, array $values): array
+    {
+        return self::getAllByAttributeCodeValues($standardsData, AttributeCodes::ATTRIBUTE_ALPHA2, $values);
+    }
+
+    /**
+     * @param array $standardsData
      * @param string $attributeCode
      * @param string[] $values
      * @return array
