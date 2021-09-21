@@ -60,6 +60,12 @@ abstract class StandardSearchUtility
         return $list;
     }
 
+    /**
+     * @param array $standardsData
+     * @param string $attributeCode
+     * @param string[] $values
+     * @return array
+     */
     public static function getAllByAttributeCodeValues(
         array $standardsData,
         string $attributeCode,
