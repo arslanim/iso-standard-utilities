@@ -71,15 +71,14 @@ abstract class StandardSearchUtility
         string $attributeCode,
         array $values
     ): array {
-        $list = [];
-
-        foreach ($standardsData as $standardData) {
-            if (isset($standardData[$attributeCode]) &&  in_array($standardData[$attributeCode], $values)) {
-                $list[] = $standardData;
-            }
-        }
-
-        return $list;
+        return array_values(
+            array_filter(
+                $standardsData,
+                function (array $standardData) use ($attributeCode, $values): bool {
+                    return (isset($standardData[$attributeCode]) &&  in_array($standardData[$attributeCode], $values));
+                }
+            )
+        );
     }
 
     public static function getByAlpha2(array $standardsData, string $alpha2): ?array
