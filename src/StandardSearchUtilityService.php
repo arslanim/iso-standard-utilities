@@ -29,6 +29,20 @@ class StandardSearchUtilityService
         return StandardSearchUtility::getAllAttributesByCode($standardsData, $attributeCode);
     }
 
+    /**
+     * @param array $standardsData
+     * @param string $attributeCode
+     * @param string[] $values
+     * @return array
+     */
+    public function getAllByAttributeCodeValues(
+        array $standardsData,
+        string $attributeCode,
+        array $values
+    ): array {
+        return StandardSearchUtility::getAllByAttributeCodeValues($standardsData, $attributeCode, $values);
+    }
+
     public function getByAlpha2(array $standardsData, string $alpha2): ?array
     {
         return StandardSearchUtility::getByAlpha2($standardsData, $alpha2);
