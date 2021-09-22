@@ -1,4 +1,4 @@
-name: CI-coverage
+name: CI-COVERAGE
 
 on: [push]
 
