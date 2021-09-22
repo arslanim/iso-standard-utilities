@@ -9,8 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: php-actions/composer@v5
-
       - name: PHP Code Style
         uses: chindit/actions-phpcs@master
         with:
