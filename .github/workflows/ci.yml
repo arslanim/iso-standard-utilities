@@ -11,9 +11,33 @@ jobs:
 
       - uses: php-actions/composer@v5
 
+      - name: PHPStan Static Analysis
+        uses: php-actions/phpstan@v3
+        with:
+          path: src/, tests/
+          level: 5
+
       - name: PHPUnit Tests
         uses: php-actions/phpunit@v3
         with:
           bootstrap: vendor/autoload.php
           configuration: phpunit.xml
           args: --coverage-text
+
+      - name: PHPUnit Tests coverage
+        uses: php-actions/phpunit@v3
+        with:
+          php_extensions: xdebug
+          bootstrap: vendor/autoload.php
+          configuration: phpunit.xml
+          args: --coverage-text
+        env:
+          XDEBUG_MODE: coverage
+
+      - name: Generate test coverage badge
+        uses: timkrase/phpunit-coverage-badge@v1.2.0
+        with:
+          report: ./clover.xml
+          coverage_badge_path: 'badge.svg'
+          push_badge: true
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
