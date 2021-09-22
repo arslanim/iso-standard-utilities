@@ -20,4 +20,3 @@ jobs:
           args: --coverage-text
         env:
           XDEBUG_MODE: coverage
-          TEST_NAME: Scarlett
