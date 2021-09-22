@@ -17,6 +17,8 @@ Details:
 
 StandardSearchUtility - class provides set of function for working with raw data standards.
 
+StandardSearchUtilityService - service class wrapper over StandardSearchUtility.
+
 ### getByAlpha2
 ```php
 public static function getByAlpha2(
