@@ -1,4 +1,7 @@
 # ISO standard utilities
+
+![Code Coverage Badge](./badge.svg) 
+
 This component provides features for supporting search iso standards raw data by attributes.
 
 ## Terms and designations
