@@ -186,6 +186,16 @@ Input:
 
 Return: array of standards, filtered by given code attribute name and code values string array.
 
+### getAllByAlpha2Values
+```php
+public static function getAllByAlpha2Values(array $standardsData, array $values): array;
+```
+Input:
+- $standardsData - array standards raw dataset;
+- $values - alpha2 code values string array;
+
+Return: array of standards, filtered by given alpha2 code values string array.
+
 ## Usage examples
 ```php
 $rawStandardsData = [
