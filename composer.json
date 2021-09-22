@@ -10,7 +10,8 @@
     "require": {},
     "require-dev": {
         "phpunit/phpunit": "^8.5",
-        "phpstan/phpstan": "^0.12.90"
+        "phpstan/phpstan": "^0.12.90",
+        "phpmd/phpmd": "*"
     },
     "autoload": {
         "psr-4": {
