@@ -11,12 +11,6 @@ jobs:
 
       - uses: php-actions/composer@v5
 
-      - name: PHPStan Static Analysis
-        uses: php-actions/phpstan@v3
-        with:
-          path: src tests
-          level: 5
-
       - name: PHPUnit Tests
         uses: php-actions/phpunit@v3
         with:
