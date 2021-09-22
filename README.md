@@ -1,5 +1,5 @@
 # ISO standard utilities
-This component provides features for supporting search iso standards raw data by attributes.
+This component provides features for supporting search iso standards raw data by attributes
 
 ## Terms and designations
 - alpha2 - two-letter codes (recommended as the general-purpose code);
