@@ -35,6 +35,7 @@ jobs:
           XDEBUG_MODE: coverage
 
       - uses: actions/checkout@v2
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate test coverage badge
         uses: timkrase/phpunit-coverage-badge@v1.2.0
