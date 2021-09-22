@@ -171,6 +171,21 @@ Input:
 
 Return: standards attribute code value searched by attribute code name.
 
+### getAllByAttributeCodeValues
+```php
+public static function getAllByAttributeCodeValues(
+    array $standardsData,
+    string $attributeCode,
+    array $values
+): array;
+```
+Input:
+- $standardsData - array standards raw dataset;
+- $attributeCode - code attribute name;
+- $values - code values string array;
+
+Return: array of standards, filtered by given code attribute name and code values string array.
+
 ## Usage examples
 ```php
 $rawStandardsData = [
