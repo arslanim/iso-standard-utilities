@@ -21,3 +21,9 @@ jobs:
         env:
           XDEBUG_MODE: coverage
           TEST_NAME: Scarlett
+
+      - name: Generate test coverage badge
+          uses: ./
+          with:
+            coverage_badge_path: 'badge.svg'
+            push_badge: true
