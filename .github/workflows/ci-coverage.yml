@@ -22,7 +22,7 @@ jobs:
           XDEBUG_MODE: coverage
 
       - name: Generate test coverage badge
-          uses: php-actions/phpunit-coverage-badge@v3
+          uses: timkrase/phpunit-coverage-badge@v1.2.0
           with:
             coverage_badge_path: 'badge.svg'
             push_badge: true
