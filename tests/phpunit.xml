@@ -22,10 +22,4 @@
             <clover outputFile="clover.xml" />
         </report>
     </coverage>
-
-    <filter>
-        <include processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./src</directory>
-        </include>
-    </filter>
 </phpunit>
