@@ -24,8 +24,8 @@
     </coverage>
 
     <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
+        <include processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./src</directory>
-        </whitelist>
+        </include>
     </filter>
 </phpunit>
