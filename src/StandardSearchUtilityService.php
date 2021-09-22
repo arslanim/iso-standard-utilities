@@ -39,6 +39,11 @@ class StandardSearchUtilityService
         return StandardSearchUtility::getAllByAlpha2Values($standardsData, $values);
     }
 
+    public function getAllByAlpha3Values(array $standardsData, array $values): array
+    {
+        return StandardSearchUtility::getAllByAlpha3Values($standardsData, $values);
+    }
+
     /**
      * @param array $standardsData
      * @param string $attributeCode

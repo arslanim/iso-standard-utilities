@@ -1,4 +1,7 @@
 # ISO standard utilities
+
+![Code Coverage Badge](./badge.svg) 
+
 This component provides features for supporting search iso standards raw data by attributes.
 
 ## Terms and designations
@@ -16,6 +19,8 @@ Details:
 - AttributeCodes::ATTRIBUTE_NUMERIC_CODE - represents three-digit numeric code (which can be useful if you need to avoid using Latin script).
 
 StandardSearchUtility - class provides set of function for working with raw data standards.
+
+StandardSearchUtilityService - service class wrapper over StandardSearchUtility.
 
 ### getByAlpha2
 ```php
@@ -170,6 +175,215 @@ Input:
 - $attributeCode - code attribute name;
 
 Return: standards attribute code value searched by attribute code name.
+
+### getAllByAttributeCodeValues
+```php
+public static function getAllByAttributeCodeValues(
+    array $standardsData,
+    string $attributeCode,
+    array $values
+): array;
+```
+Input:
+- $standardsData - array standards raw dataset;
+- $attributeCode - code attribute name;
+- $values - code values string array;
+
+Return: array of standards, filtered by given code attribute name and code values string array.
+
+#### Examples
+```php
+$rawStandardsData = [
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Armenia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AM",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ARM",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "051",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Aruba",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AW",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ABW",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "533",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Australia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AU",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "AUS",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "036",
+    ],
+];
+
+$result = StandardSearchUtility::getAllByAttributeCodeValues($rawStandardsData, AttributeCodes::ATTRIBUTE_ALPHA2, ['AU', 'AM']);
+var_dump($result);
+
+array(2) {
+  [0]=>
+  array(4) {
+    ["name"]=>
+    string(7) "Armenia"
+    ["alpha2"]=>
+    string(2) "AM"
+    ["alpha3"]=>
+    string(3) "ARM"
+    ["numericCode"]=>
+    string(3) "051"
+  }
+  [1]=>
+  array(4) {
+    ["name"]=>
+    string(9) "Australia"
+    ["alpha2"]=>
+    string(2) "AU"
+    ["alpha3"]=>
+    string(3) "AUS"
+    ["numericCode"]=>
+    string(3) "036"
+  }
+}
+
+$result = StandardSearchUtility::getAllByAttributeCodeValues($rawStandardsData, AttributeCodes::ATTRIBUTE_ALPHA2, ['AUS', 'ARM']);
+var_dump($result);
+
+array(0) {
+}
+```
+
+### getAllByAlpha2Values
+```php
+public static function getAllByAlpha2Values(array $standardsData, array $values): array;
+```
+Input:
+- $standardsData - array standards raw dataset;
+- $values - alpha2 code values string array;
+
+Return: array of standards, filtered by given alpha2 code values string array.
+
+#### Examples
+```php
+$rawStandardsData = [
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Armenia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AM",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ARM",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "051",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Aruba",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AW",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ABW",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "533",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Australia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AU",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "AUS",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "036",
+    ],
+];
+
+$result = StandardSearchUtility::getAllByAlpha2Values($rawStandardsData, ['AU', 'AM']);
+var_dump($result);
+
+array(2) {
+  [0]=>
+  array(4) {
+    ["name"]=>
+    string(7) "Armenia"
+    ["alpha2"]=>
+    string(2) "AM"
+    ["alpha3"]=>
+    string(3) "ARM"
+    ["numericCode"]=>
+    string(3) "051"
+  }
+  [1]=>
+  array(4) {
+    ["name"]=>
+    string(9) "Australia"
+    ["alpha2"]=>
+    string(2) "AU"
+    ["alpha3"]=>
+    string(3) "AUS"
+    ["numericCode"]=>
+    string(3) "036"
+  }
+}
+
+$result = StandardSearchUtility::getAllByAlpha2Values($rawStandardsData, ['AUS', 'ARM']);
+var_dump($result);
+
+array(0) {
+}
+```
+
+### getAllByAlpha3Values
+```php
+public static function getAllByAlpha3Values(array $standardsData, array $values): array;
+```
+Input:
+- $standardsData - array standards raw dataset;
+- $values - alpha3 code values string array;
+
+Return: array of standards, filtered by given alpha3 code values string array.
+
+#### Examples
+```php
+$rawStandardsData = [
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Armenia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AM",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ARM",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "051",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Aruba",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AW",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ABW",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "533",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Australia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AU",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "AUS",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "036",
+    ],
+];
+
+$result = StandardSearchUtility::getAllByAlpha3Values($rawStandardsData, ['AUS', 'ARM']);
+var_dump($result);
+
+array(2) {
+  [0]=>
+  array(4) {
+    ["name"]=>
+    string(7) "Armenia"
+    ["alpha2"]=>
+    string(2) "AM"
+    ["alpha3"]=>
+    string(3) "ARM"
+    ["numericCode"]=>
+    string(3) "051"
+  }
+  [1]=>
+  array(4) {
+    ["name"]=>
+    string(9) "Australia"
+    ["alpha2"]=>
+    string(2) "AU"
+    ["alpha3"]=>
+    string(3) "AUS"
+    ["numericCode"]=>
+    string(3) "036"
+  }
+}
+
+$result = StandardSearchUtility::getAllByAlpha3Values($rawStandardsData, ['AU']);
+var_dump($result);
+
+array(0) {
+}
+```
 
 ## Usage examples
 ```php
