@@ -20,3 +20,9 @@ jobs:
           args: --coverage-text
         env:
           XDEBUG_MODE: coverage
+
+      - name: Generate test coverage badge
+          uses: ./
+          with:
+            coverage_badge_path: 'badge.svg'
+            push_badge: true
