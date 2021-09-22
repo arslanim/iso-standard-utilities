@@ -23,24 +23,3 @@ jobs:
           bootstrap: vendor/autoload.php
           configuration: phpunit.xml
           args: --coverage-text
-
-      - name: PHPUnit Tests coverage
-        uses: php-actions/phpunit@v3
-        with:
-          php_extensions: xdebug
-          bootstrap: vendor/autoload.php
-          configuration: phpunit.xml
-          args: --coverage-text
-        env:
-          XDEBUG_MODE: coverage
-
-      - uses: actions/checkout@v2
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Generate test coverage badge
-        uses: timkrase/phpunit-coverage-badge@v1.2.0
-        with:
-          report: ./clover.xml
-          coverage_badge_path: 'badge.svg'
-          push_badge: true
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
