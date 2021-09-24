@@ -488,11 +488,62 @@ public static function existByNumericCode(
     string $numericCode
 ): bool;
 ```
+```php
+public function existByNumericCode(
+    array $standardsData,
+    string $numericCode
+): bool;
+```
 Input:
 - $standardsData - array standards raw dataset;
 - $numericCode - numeric code value;
 
 Return: true if standard raw data exist by numeric code, false if not exist.
+
+```php
+$rawStandardsData = [
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Armenia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AM",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ARM",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "051",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Aruba",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AW",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ABW",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "533",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Australia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AU",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "AUS",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "036",
+    ],
+];
+
+$result = StandardSearchUtility::existByNumericCode($rawStandardsData, '036');
+var_dump($result);
+
+bool(true)
+
+$result = StandardSearchUtility::existByNumericCode($rawStandardsData, '000');
+var_dump($result);
+
+bool(false)
+
+$service = new StandardSearchUtilityService();
+
+$result = $service->existByNumericCode($rawStandardsData, '036');
+var_dump($result);
+
+bool(true)
+
+$result = $service->existByNumericCode($rawStandardsData, '000');
+var_dump($result);
+
+bool(false)
+```
 
 ### existByAttributeCode
 ```php
