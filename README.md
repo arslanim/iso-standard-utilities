@@ -1171,7 +1171,16 @@ array(0) {
 
 ### getAllByAlpha3Values
 ```php
-public static function getAllByAlpha3Values(array $standardsData, array $values): array;
+public static function getAllByAlpha3Values(
+    array $standardsData,
+    array $values
+): array;
+```
+```php
+public function getAllByAlpha3Values(
+    array $standardsData,
+    array $values
+): array;
 ```
 Input:
 - $standardsData - array standards raw dataset;
@@ -1230,7 +1239,43 @@ array(2) {
   }
 }
 
-$result = StandardSearchUtility::getAllByAlpha3Values($rawStandardsData, ['AU']);
+$result = StandardSearchUtility::getAllByAlpha3Values($rawStandardsData, ['AU', 'AM']);
+var_dump($result);
+
+array(0) {
+}
+
+$service = new StandardSearchUtilityService();
+
+$result = $service->getAllByAlpha3Values($rawStandardsData, ['AUS', 'ARM']);
+var_dump($result);
+
+array(2) {
+  [0]=>
+  array(4) {
+    ["name"]=>
+    string(7) "Armenia"
+    ["alpha2"]=>
+    string(2) "AM"
+    ["alpha3"]=>
+    string(3) "ARM"
+    ["numericCode"]=>
+    string(3) "051"
+  }
+  [1]=>
+  array(4) {
+    ["name"]=>
+    string(9) "Australia"
+    ["alpha2"]=>
+    string(2) "AU"
+    ["alpha3"]=>
+    string(3) "AUS"
+    ["numericCode"]=>
+    string(3) "036"
+  }
+}
+
+$result = $service->getAllByAlpha3Values($rawStandardsData, ['AU', 'AM']);
 var_dump($result);
 
 array(0) {
