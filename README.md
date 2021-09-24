@@ -276,12 +276,82 @@ public static function getStandardsDataByAttributeCode(
     string $value
 ): ?array;
 ```
+```php
+public function getStandardsDataByAttributeCode(
+    array $standardsData,
+    string $attributeCode,
+    string $value
+): ?array;
+```
 Input:
 - $standardsData - array standards raw dataset;
 - $attributeCode - code attribute name;
 - $value - code value
 
 Return: found standard raw array data, suitable to input code attribute name and code value (or null if not found).
+
+```php
+$rawStandardsData = [
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Armenia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AM",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ARM",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "051",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Aruba",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AW",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ABW",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "533",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Australia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AU",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "AUS",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "036",
+    ],
+];
+
+$result = StandardSearchUtility::getStandardsDataByAttributeCode($rawStandardsData, AttributeCodes::ATTRIBUTE_ALPHA2, 'AU');
+var_dump($result);
+
+array(4) {
+  ["name"]=>
+  string(9) "Australia"
+  ["alpha2"]=>
+  string(2) "AU"
+  ["alpha3"]=>
+  string(3) "AUS"
+  ["numericCode"]=>
+  string(3) "036"
+}
+
+$result = StandardSearchUtility::getStandardsDataByAttributeCode($rawStandardsData, AttributeCodes::ATTRIBUTE_ALPHA2, 'AUS');
+var_dump($result);
+
+NULL
+
+$service = new StandardSearchUtilityService();
+
+$result = $service->getStandardsDataByAttributeCode($rawStandardsData, AttributeCodes::ATTRIBUTE_ALPHA2, 'AU');
+var_dump($result);
+
+array(4) {
+  ["name"]=>
+  string(9) "Australia"
+  ["alpha2"]=>
+  string(2) "AU"
+  ["alpha3"]=>
+  string(3) "AUS"
+  ["numericCode"]=>
+  string(3) "036"
+}
+
+$result = $service->getStandardsDataByAttributeCode($rawStandardsData, AttributeCodes::ATTRIBUTE_ALPHA2, 'AUS');
+var_dump($result);
+
+NULL
+```
 
 ### existByAlpha2
 ```php
