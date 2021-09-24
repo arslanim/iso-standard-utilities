@@ -1284,7 +1284,16 @@ array(0) {
 
 ### getAllByNumericCodeValues
 ```php
-public static function getAllByNumericCodeValues(array $standardsData, array $values): array;
+public static function getAllByNumericCodeValues(
+    array $standardsData,
+    array $values
+): array;
+```
+```php
+public function getAllByNumericCodeValues(
+    array $standardsData,
+    array $values
+): array;
 ```
 Input:
 - $standardsData - array standards raw dataset;
@@ -1315,7 +1324,7 @@ $rawStandardsData = [
     ],
 ];
 
-$result = StandardSearchUtility::getAllByNumericCodeValues($rawStandardsData, ['051', '533']);
+$result = StandardSearchUtility::getAllByNumericCodeValues($rawStandardsData, ['051', '036']);
 var_dump($result);
 
 array(2) {
@@ -1333,17 +1342,53 @@ array(2) {
   [1]=>
   array(4) {
     ["name"]=>
-    string(5) "Aruba"
+    string(9) "Australia"
     ["alpha2"]=>
-    string(2) "AW"
+    string(2) "AU"
     ["alpha3"]=>
-    string(3) "ABW"
+    string(3) "AUS"
     ["numericCode"]=>
-    string(3) "533"
+    string(3) "036"
   }
 }
 
-$result = StandardSearchUtility::getAllByAlpha3Values($rawStandardsData, ['000']);
+$result = StandardSearchUtility::getAllByNumericCodeValues($rawStandardsData, ['000', '111']);
+var_dump($result);
+
+array(0) {
+}
+
+$service = new StandardSearchUtilityService();
+
+$result = $service->getAllByNumericCodeValues($rawStandardsData, ['051', '036']);
+var_dump($result);
+
+array(2) {
+  [0]=>
+  array(4) {
+    ["name"]=>
+    string(7) "Armenia"
+    ["alpha2"]=>
+    string(2) "AM"
+    ["alpha3"]=>
+    string(3) "ARM"
+    ["numericCode"]=>
+    string(3) "051"
+  }
+  [1]=>
+  array(4) {
+    ["name"]=>
+    string(9) "Australia"
+    ["alpha2"]=>
+    string(2) "AU"
+    ["alpha3"]=>
+    string(3) "AUS"
+    ["numericCode"]=>
+    string(3) "036"
+  }
+}
+
+$result = $service->getAllByNumericCodeValues($rawStandardsData, ['000', '111']);
 var_dump($result);
 
 array(0) {
