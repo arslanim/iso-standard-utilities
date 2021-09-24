@@ -327,6 +327,16 @@ Input:
 
 Return: array of standards, filtered by given alpha3 code values string array.
 
+### getAllByAlpha3Values
+```php
+public static function getAllByNumericCodeValues(array $standardsData, array $values): array;
+```
+Input:
+- $standardsData - array standards raw dataset;
+- $values - numeric code values string array;
+
+Return: array of standards, filtered by given numeric code values string array.
+
 #### Examples
 ```php
 $rawStandardsData = [
