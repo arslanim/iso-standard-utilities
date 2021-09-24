@@ -83,6 +83,8 @@ var_dump($result);
 
 NULL
 
+$service = new StandardSearchUtilityService();
+
 $result = $service->getByAlpha2($rawStandardsData, 'AU');
 var_dump($result);
 
