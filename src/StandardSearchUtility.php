@@ -80,6 +80,11 @@ abstract class StandardSearchUtility
         return self::getAllByAttributeCodeValues($standardsData, AttributeCodes::ATTRIBUTE_ALPHA3, $values);
     }
 
+    /**
+     * @param array $standardsData
+     * @param string[] $values
+     * @return array
+     */
     public static function getAllByNumericCodeValues(array $standardsData, array $values): array
     {
         return self::getAllByAttributeCodeValues($standardsData, AttributeCodes::ATTRIBUTE_NUMERIC_CODE, $values);
