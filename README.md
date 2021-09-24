@@ -193,11 +193,80 @@ public static function getByNumericCode(
     string $numericCode
 ): ?array;
 ```
+```php
+public function getByNumericCode(
+    array $standardsData,
+    string $numericCode
+): ?array;
+```
 Input:
 - $standardsData - array standards raw dataset;
 - $numericCode - numeric code value;
 
 Return: found standard raw array data, suitable to input numeric code value (or null if not found).
+
+```php
+$rawStandardsData = [
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Armenia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AM",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ARM",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "051",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Aruba",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AW",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ABW",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "533",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Australia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AU",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "AUS",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "036",
+    ],
+];
+
+$result = StandardSearchUtility::getByNumericCode($rawStandardsData, '051');
+var_dump($result);
+
+array(4) {
+  ["name"]=>
+  string(7) "Armenia"
+  ["alpha2"]=>
+  string(2) "AM"
+  ["alpha3"]=>
+  string(3) "ARM"
+  ["numericCode"]=>
+  string(3) "051"
+}
+
+$result = StandardSearchUtility::getByNumericCode($rawStandardsData, '000');
+var_dump($result);
+
+NULL
+
+$service = new StandardSearchUtilityService();
+
+$result = $service->getByNumericCode($rawStandardsData, '051');
+var_dump($result);
+
+array(4) {
+  ["name"]=>
+  string(7) "Armenia"
+  ["alpha2"]=>
+  string(2) "AM"
+  ["alpha3"]=>
+  string(3) "ARM"
+  ["numericCode"]=>
+  string(3) "051"
+}
+
+$result = $service->getByNumericCode($rawStandardsData, '000');
+var_dump($result);
+
+NULL
+```
 
 ### getStandardsDataByAttributeCode
 ```php
