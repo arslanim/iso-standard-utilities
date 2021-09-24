@@ -1397,7 +1397,16 @@ array(0) {
 
 ### getAllByNameValues
 ```php
-public static function getAllByNameValues(array $standardsData, array $values): array;
+public static function getAllByNameValues(
+    array $standardsData,
+    array $values
+): array;
+```
+```php
+public function getAllByNameValues(
+    array $standardsData,
+    array $values
+): array;
 ```
 Input:
 - $standardsData - array standards raw dataset;
@@ -1456,7 +1465,43 @@ array(2) {
   }
 }
 
-$result = StandardSearchUtility::getAllByAlpha3Values($rawStandardsData, ['foo']);
+$result = StandardSearchUtility::getAllByNameValues($rawStandardsData, ['foo', 'bar']);
+var_dump($result);
+
+array(0) {
+}
+
+$service = new StandardSearchUtilityService();
+
+$result = $service->getAllByNameValues($rawStandardsData, ['Armenia', 'Australia']);
+var_dump($result);
+
+array(2) {
+  [0]=>
+  array(4) {
+    ["name"]=>
+    string(7) "Armenia"
+    ["alpha2"]=>
+    string(2) "AM"
+    ["alpha3"]=>
+    string(3) "ARM"
+    ["numericCode"]=>
+    string(3) "051"
+  }
+  [1]=>
+  array(4) {
+    ["name"]=>
+    string(9) "Australia"
+    ["alpha2"]=>
+    string(2) "AU"
+    ["alpha3"]=>
+    string(3) "AUS"
+    ["numericCode"]=>
+    string(3) "036"
+  }
+}
+
+$result = $service->getAllByNameValues($rawStandardsData, ['foo', 'bar']);
 var_dump($result);
 
 array(0) {
