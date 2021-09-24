@@ -327,16 +327,6 @@ Input:
 
 Return: array of standards, filtered by given alpha3 code values string array.
 
-### getAllByAlpha3Values
-```php
-public static function getAllByNumericCodeValues(array $standardsData, array $values): array;
-```
-Input:
-- $standardsData - array standards raw dataset;
-- $values - numeric code values string array;
-
-Return: array of standards, filtered by given numeric code values string array.
-
 #### Examples
 ```php
 $rawStandardsData = [
@@ -389,6 +379,74 @@ array(2) {
 }
 
 $result = StandardSearchUtility::getAllByAlpha3Values($rawStandardsData, ['AU']);
+var_dump($result);
+
+array(0) {
+}
+```
+
+### getAllByNumericCodeValues
+```php
+public static function getAllByNumericCodeValues(array $standardsData, array $values): array;
+```
+Input:
+- $standardsData - array standards raw dataset;
+- $values - numeric code values string array;
+
+Return: array of standards, filtered by given numeric code values string array.
+
+#### Examples
+```php
+$rawStandardsData = [
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Armenia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AM",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ARM",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "051",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Aruba",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AW",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ABW",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "533",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Australia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AU",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "AUS",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "036",
+    ],
+];
+
+$result = StandardSearchUtility::getAllByNumericCodeValues($rawStandardsData, ['051', '533']);
+var_dump($result);
+
+array(2) {
+  [0]=>
+  array(4) {
+    ["name"]=>
+    string(7) "Armenia"
+    ["alpha2"]=>
+    string(2) "AM"
+    ["alpha3"]=>
+    string(3) "ARM"
+    ["numericCode"]=>
+    string(3) "051"
+  }
+  [1]=>
+  array(4) {
+    ["name"]=>
+    string(5) "Aruba"
+    ["alpha2"]=>
+    string(2) "AW"
+    ["alpha3"]=>
+    string(3) "ABW"
+    ["numericCode"]=>
+    string(3) "533"
+  }
+}
+
+$result = StandardSearchUtility::getAllByAlpha3Values($rawStandardsData, ['000']);
 var_dump($result);
 
 array(0) {
