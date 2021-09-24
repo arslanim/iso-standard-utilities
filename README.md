@@ -29,6 +29,12 @@ public static function getByAlpha2(
     string $alpha2
 ): ?array;
 ```
+```php
+public function getByAlpha2(
+    array $standardsData,
+    string $alpha2
+): ?array;
+```
 Input:
 - $standardsData - array standards raw dataset;
 - $alpha2 - two-letter code value;
