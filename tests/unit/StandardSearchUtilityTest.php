@@ -1247,8 +1247,11 @@ class StandardSearchUtilityTest extends TestCase
     public function testGetAllByNameValues(array $standardsData, array $values, array $expectedResult): void
     {
         $utilityResult = StandardSearchUtility::getAllByNameValues($standardsData, $values);
+        $serviceResult = $this->standardSearchUtilityService->getAllByNameValues($standardsData, $values);
 
         $this->assertEquals($expectedResult, $utilityResult);
+        $this->assertEquals($expectedResult, $serviceResult);
+        $this->assertEquals($utilityResult, $serviceResult);
     }
 
     public function getTestGetAllByNameValuesData(): array
