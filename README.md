@@ -110,11 +110,81 @@ public static function getByAlpha3(
     string $alpha3
 ): ?array;
 ```
+```php
+public function getByAlpha3(
+    array $standardsData,
+    string $alpha3
+): ?array;
+```
 Input:
 - $standardsData - array standards raw dataset;
 - $alpha3 - three-letter code value;
 
 Return: found standard raw array data, suitable to input three-letter code value (or null if not found).
+
+#### Examples
+```php
+$rawStandardsData = [
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Armenia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AM",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ARM",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "051",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Aruba",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AW",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ABW",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "533",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Australia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AU",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "AUS",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "036",
+    ],
+];
+
+$result = StandardSearchUtility::getByAlpha3($rawStandardsData, 'ARM');
+var_dump($result);
+
+array(4) {
+  ["name"]=>
+  string(7) "Armenia"
+  ["alpha2"]=>
+  string(2) "AM"
+  ["alpha3"]=>
+  string(3) "ARM"
+  ["numericCode"]=>
+  string(3) "051"
+}
+
+$result = StandardSearchUtility::getByAlpha3($rawStandardsData, 'FOO');
+var_dump($result);
+
+NULL
+
+$service = new StandardSearchUtilityService();
+
+$result = $service->getByAlpha3($rawStandardsData, 'ARM');
+var_dump($result);
+
+array(4) {
+  ["name"]=>
+  string(7) "Armenia"
+  ["alpha2"]=>
+  string(2) "AM"
+  ["alpha3"]=>
+  string(3) "ARM"
+  ["numericCode"]=>
+  string(3) "051"
+}
+
+$result = $service->getByAlpha3($rawStandardsData, 'RUS');
+var_dump($result);
+
+NULL
+```
 
 ### getByNumericCode
 ```php
