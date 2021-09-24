@@ -948,6 +948,13 @@ public static function getAllByAttributeCodeValues(
     array $values
 ): array;
 ```
+```php
+public function getAllByAttributeCodeValues(
+    array $standardsData,
+    string $attributeCode,
+    array $values
+): array;
+```
 Input:
 - $standardsData - array standards raw dataset;
 - $attributeCode - code attribute name;
@@ -1007,6 +1014,42 @@ array(2) {
 }
 
 $result = StandardSearchUtility::getAllByAttributeCodeValues($rawStandardsData, AttributeCodes::ATTRIBUTE_ALPHA2, ['AUS', 'ARM']);
+var_dump($result);
+
+array(0) {
+}
+
+$service = new StandardSearchUtilityService();
+
+$result = $service->getAllByAttributeCodeValues($rawStandardsData, AttributeCodes::ATTRIBUTE_ALPHA2, ['AU', 'AM']);
+var_dump($result);
+
+array(2) {
+  [0]=>
+  array(4) {
+    ["name"]=>
+    string(7) "Armenia"
+    ["alpha2"]=>
+    string(2) "AM"
+    ["alpha3"]=>
+    string(3) "ARM"
+    ["numericCode"]=>
+    string(3) "051"
+  }
+  [1]=>
+  array(4) {
+    ["name"]=>
+    string(9) "Australia"
+    ["alpha2"]=>
+    string(2) "AU"
+    ["alpha3"]=>
+    string(3) "AUS"
+    ["numericCode"]=>
+    string(3) "036"
+  }
+}
+
+$result = $service->getAllByAttributeCodeValues($rawStandardsData, AttributeCodes::ATTRIBUTE_ALPHA2, ['AUS', 'ARM']);
 var_dump($result);
 
 array(0) {
