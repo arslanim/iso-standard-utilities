@@ -385,7 +385,17 @@ array(0) {
 }
 ```
 
-## Usage examples
+### getAllByNumericCodeValues
+```php
+public static function getAllByNumericCodeValues(array $standardsData, array $values): array;
+```
+Input:
+- $standardsData - array standards raw dataset;
+- $values - numeric code values string array;
+
+Return: array of standards, filtered by given numeric code values string array.
+
+#### Examples
 ```php
 $rawStandardsData = [
     [
@@ -408,91 +418,39 @@ $rawStandardsData = [
     ],
 ];
 
-$rawDataByAlpha2 = StandardSearchUtility::getByAlpha2($rawStandardsData, 'AU');
-$emptyRawDataByAlpha2 = StandardSearchUtility::getByAlpha2($rawStandardsData, 'foo');
+$result = StandardSearchUtility::getAllByNumericCodeValues($rawStandardsData, ['051', '533']);
+var_dump($result);
 
-$rawDataByAlpha3 = StandardSearchUtility::getByAlpha3($rawStandardsData, 'AUS');
-$emptyRawDataByAlpha3 = StandardSearchUtility::getByAlpha3($rawStandardsData, 'foo');
-
-$rawDataByNumericCode = StandardSearchUtility::getByNumericCode($rawStandardsData, '036');
-$emptyDataByNumericCode = StandardSearchUtility::getByAlpha3($rawStandardsData, '111');
-
-$rawDataByAttributeCode = StandardSearchUtility::getStandardsDataByAttributeCode($rawStandardsData, AttributeCodes::ATTRIBUTE_ALPHA2, 'AU');
-$emptyRawDataByAttributeCode = StandardSearchUtility::getStandardsDataByAttributeCode($rawStandardsData, AttributeCodes::ATTRIBUTE_ALPHA3, 'AU');
-
-$existRawDataByAlpha2 = StandardSearchUtility::existByAlpha2($rawStandardsData, 'AU');
-$notExistRawDataByAlpha2 = StandardSearchUtility::existByAlpha2($rawStandardsData, 'AUS');
-
-$existRawDataByAlpha3 = StandardSearchUtility::existByAlpha3($rawStandardsData, 'AUS');
-$notExistRawDataByAlpha3 = StandardSearchUtility::existByAlpha3($rawStandardsData, 'AU');
-
-$existRawDataByNumericCode = StandardSearchUtility::existByNumericCode($rawStandardsData, '036');
-$notExistRawDataByNumericCode = StandardSearchUtility::existByNumericCode($rawStandardsData, '000');
-
-$existRawDataByNumericCode = StandardSearchUtility::existByAttributeCode($rawStandardsData, AttributeCodes::ATTRIBUTE_ALPHA2, 'AU');
-$notExistRawDataByNumericCode = StandardSearchUtility::existByAttributeCode($rawStandardsData, AttributeCodes::ATTRIBUTE_ALPHA3, 'AU');
-```
-Result
-```php
-array(4) {
+array(2) {
+  [0]=>
+  array(4) {
     ["name"]=>
-  string(9) "Australia"
+    string(7) "Armenia"
     ["alpha2"]=>
-  string(2) "AU"
+    string(2) "AM"
     ["alpha3"]=>
-  string(3) "AUS"
+    string(3) "ARM"
     ["numericCode"]=>
-  string(3) "036"
-}
-NULL
-
-array(4) {
+    string(3) "051"
+  }
+  [1]=>
+  array(4) {
     ["name"]=>
-  string(9) "Australia"
+    string(5) "Aruba"
     ["alpha2"]=>
-  string(2) "AU"
+    string(2) "AW"
     ["alpha3"]=>
-  string(3) "AUS"
+    string(3) "ABW"
     ["numericCode"]=>
-  string(3) "036"
+    string(3) "533"
+  }
 }
-NULL
 
-array(4) {
-    ["name"]=>
-  string(9) "Australia"
-    ["alpha2"]=>
-  string(2) "AU"
-    ["alpha3"]=>
-  string(3) "AUS"
-    ["numericCode"]=>
-  string(3) "036"
+$result = StandardSearchUtility::getAllByAlpha3Values($rawStandardsData, ['000']);
+var_dump($result);
+
+array(0) {
 }
-NULL
-
-array(4) {
-    ["name"]=>
-  string(9) "Australia"
-    ["alpha2"]=>
-  string(2) "AU"
-    ["alpha3"]=>
-  string(3) "AUS"
-    ["numericCode"]=>
-  string(3) "036"
-}
-NULL
-
-bool(true)
-bool(false)
-    
-bool(true)
-bool(false)
-    
-bool(true)
-bool(false)
-    
-bool(true)
-bool(false)
 ```
 
 ## Contributing
