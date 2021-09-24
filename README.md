@@ -360,11 +360,62 @@ public static function existByAlpha2(
     string $alpha2
 ): bool;
 ```
+```php
+public function existByAlpha2(
+    array $standardsData,
+    string $alpha2
+): bool;
+```
 Input:
 - $standardsData - array standards raw dataset;
 - $alpha2 - two-letter code value;
 
 Return: true if standard raw data exist by two-letter code, false if not exist.
+
+```php
+$rawStandardsData = [
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Armenia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AM",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ARM",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "051",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Aruba",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AW",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ABW",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "533",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Australia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AU",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "AUS",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "036",
+    ],
+];
+
+$result = StandardSearchUtility::existByAlpha2($rawStandardsData, 'AU');
+var_dump($result);
+
+bool(true)
+
+$result = StandardSearchUtility::existByAlpha2($rawStandardsData, 'AUS');
+var_dump($result);
+
+bool(false)
+
+$service = new StandardSearchUtilityService();
+
+$result = $service->existByAlpha2($rawStandardsData, 'AU');
+var_dump($result);
+
+bool(true)
+
+$result = $service->existByAlpha2($rawStandardsData, 'AUS');
+var_dump($result);
+
+bool(false)
+```
 
 ### existByAlpha3
 ```php
