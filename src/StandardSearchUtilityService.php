@@ -39,9 +39,24 @@ class StandardSearchUtilityService
         return StandardSearchUtility::getAllByAlpha2Values($standardsData, $values);
     }
 
+    /**
+     * @param array $standardsData
+     * @param string[] $values
+     * @return array
+     */
     public function getAllByAlpha3Values(array $standardsData, array $values): array
     {
         return StandardSearchUtility::getAllByAlpha3Values($standardsData, $values);
+    }
+
+    /**
+     * @param array $standardsData
+     * @param string[] $values
+     * @return array
+     */
+    public function getAllByNumericCodeValues(array $standardsData, array $values): array
+    {
+        return StandardSearchUtility::getAllByNumericCodeValues($standardsData, $values);
     }
 
     /**
