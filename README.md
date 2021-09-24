@@ -809,12 +809,68 @@ array(3) {
 
 ### getAllAlpha2
 ```php
-public static function getAllAlpha2(array $standardsData): array
+public static function getAllAlpha2(
+    array $standardsData
+): array;
+```
+```php
+public function getAllAlpha2(
+    array $standardsData
+): array;
 ```
 Input:
 - $standardsData - array standards raw dataset;
 
 Return: standards Alpha2 codes string[].
+
+```php
+$rawStandardsData = [
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Armenia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AM",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ARM",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "051",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Aruba",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AW",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ABW",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "533",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Australia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AU",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "AUS",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "036",
+    ],
+];
+
+$result = StandardSearchUtility::getAllAlpha2($rawStandardsData);
+var_dump($result);
+
+array(3) {
+  [0]=>
+  string(2) "AM"
+  [1]=>
+  string(2) "AW"
+  [2]=>
+  string(2) "AU"
+}
+
+$service = new StandardSearchUtilityService();
+
+$result = $service->getAllAlpha2($rawStandardsData);
+var_dump($result);
+
+array(3) {
+  [0]=>
+  string(2) "AM"
+  [1]=>
+  string(2) "AW"
+  [2]=>
+  string(2) "AU"
+}
+```
 
 ### getAllAttributesByCode
 ```php
