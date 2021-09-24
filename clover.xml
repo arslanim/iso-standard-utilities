@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1632500881">
-  <project timestamp="1632500881">
+<coverage generated="1632500977">
+  <project timestamp="1632500977">
     <file name="/app/src/StandardSearchUtility.php">
       <class name="arslanimamutdinov\ISOStandardUtilities\StandardSearchUtility" namespace="global">
         <metrics complexity="25" methods="17" coveredmethods="17" conditionals="0" coveredconditionals="0" statements="32" coveredstatements="32" elements="49" coveredelements="49"/>
