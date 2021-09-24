@@ -943,8 +943,11 @@ class StandardSearchUtilityTest extends TestCase
     public function testGetAllByNumericCodeValues(array $standardsData, array $values, array $expectedResult): void
     {
         $utilityResult = StandardSearchUtility::getAllByNumericCodeValues($standardsData, $values);
+        $serviceResult = $this->standardSearchUtilityService->getAllByNumericCodeValues($standardsData, $values);
 
         $this->assertEquals($expectedResult, $utilityResult);
+        $this->assertEquals($expectedResult, $serviceResult);
+        $this->assertEquals($utilityResult, $serviceResult);
     }
 
     public function getTestGetAllByNumericCodeValuesData(): array
