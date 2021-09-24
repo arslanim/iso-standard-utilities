@@ -874,13 +874,71 @@ array(3) {
 
 ### getAllAttributesByCode
 ```php
-public static function getAllAttributesByCode(array $standardsData, string $attributeCode): array;
+public static function getAllAttributesByCode(
+    array $standardsData,
+    string $attributeCode
+): array;
+```
+```php
+public function getAllAttributesByCode(
+    array $standardsData,
+    string $attributeCode
+): array
 ```
 Input:
 - $standardsData - array standards raw dataset;
 - $attributeCode - code attribute name;
 
 Return: standards attribute code value searched by attribute code name.
+
+```php
+$rawStandardsData = [
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Armenia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AM",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ARM",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "051",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Aruba",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AW",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "ABW",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "533",
+    ],
+    [
+        AttributeCodes::ATTRIBUTE_NAME => "Australia",
+        AttributeCodes::ATTRIBUTE_ALPHA2 => "AU",
+        AttributeCodes::ATTRIBUTE_ALPHA3 => "AUS",
+        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => "036",
+    ],
+];
+
+$result = StandardSearchUtility::getAllAttributesByCode($rawStandardsData, AttributeCodes::ATTRIBUTE_ALPHA2);
+var_dump($result);
+
+array(3) {
+  [0]=>
+  string(2) "AM"
+  [1]=>
+  string(2) "AW"
+  [2]=>
+  string(2) "AU"
+}
+
+$service = new StandardSearchUtilityService();
+
+$result = $service->getAllAttributesByCode($rawStandardsData, AttributeCodes::ATTRIBUTE_ALPHA2);
+var_dump($result);
+
+array(3) {
+  [0]=>
+  string(2) "AM"
+  [1]=>
+  string(2) "AW"
+  [2]=>
+  string(2) "AU"
+}
+```
 
 ### getAllByAttributeCodeValues
 ```php
