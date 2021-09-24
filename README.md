@@ -1516,13 +1516,4 @@ Welcome to pull requests. If there is a major changes, first please open an issu
 Please make sure to update tests as appropriate.
 
 ## Code coverage information
-Summary:                 
-- Classes: 100.00% (2/2)  
-- Methods: 100.00% (26/26)
-- Lines:   100.00% (48/48)
-
-Classes:
-- StandardSearchUtility
-   - Methods: 100.00% (13/13)   Lines: 100.00% ( 23/ 23)
-- StandardSearchUtilityService
-   - Methods: 100.00% (13/13)   Lines: 100.00% ( 25/ 25)
+Coverage information locates on top of README file.
