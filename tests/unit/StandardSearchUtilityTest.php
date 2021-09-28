@@ -3122,27 +3122,6 @@ class StandardSearchUtilityTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider getStandardsData
-     * @param array $standardsData
-     * @param string $attributeCode
-     * @param string $value
-     * @param bool $expectedResult
-     */
-    public function testExistByAttributeCode(
-        array $standardsData,
-        string $attributeCode,
-        string $value,
-        bool $expectedResult
-    ): void {
-        $utilityResult = StandardSearchUtility::existByAttributeCode($standardsData, $attributeCode, $value);
-        $serviceResult = $this->standardSearchUtilityService->existByAttributeCode($standardsData, $attributeCode, $value);
-
-        $this->assertEquals($expectedResult, $utilityResult);
-        $this->assertEquals($expectedResult, $serviceResult);
-        $this->assertEquals($utilityResult, $serviceResult);
-    }
-
     public function getStandardsData(): array
     {
         return [
