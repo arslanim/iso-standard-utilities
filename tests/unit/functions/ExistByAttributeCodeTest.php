@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * Class ExistByAttributeCodeTest
  * @package arslanimamutdinov\ISOStandardUtilities\tests\unit\functions
- * @group @group unit-utility-functions
+ * @group unit-utility-functions
  */
 class ExistByAttributeCodeTest extends TestCase
 {
