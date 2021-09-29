@@ -15,21 +15,21 @@ use PHPUnit\Framework\TestCase;
 class GetAllNamesTest extends TestCase
 {
     /**
-     * @dataProvider getTestGetAllNumericCodes
+     * @dataProvider getTestGetAllNamesData
      * @param array $standardsData
      * @param array $expectedResult
      */
-    public function testGetAllNumericCodes(array $standardsData, array $expectedResult): void
+    public function testGetAllNames(array $standardsData, array $expectedResult): void
     {
-        $utilityResult = StandardSearchUtility::getAllNumericCodes($standardsData);
-        $serviceResult = (new StandardSearchUtilityService())->getAllNumericCodes($standardsData);
+        $utilityResult = StandardSearchUtility::getAllNames($standardsData);
+        $serviceResult = (new StandardSearchUtilityService())->getAllNames($standardsData);
 
         $this->assertEquals($expectedResult, $utilityResult);
         $this->assertEquals($expectedResult, $serviceResult);
         $this->assertEquals($utilityResult, $serviceResult);
     }
 
-    public function getTestGetAllNumericCodes(): array
+    public function getTestGetAllNamesData(): array
     {
         return [
             [
@@ -54,9 +54,9 @@ class GetAllNamesTest extends TestCase
                     ],
                 ],
                 'expectedResult' => [
-                    '4',
-                    '8',
-                    '18',
+                    '1',
+                    '5',
+                    '15',
                 ],
             ],
             [
@@ -69,15 +69,15 @@ class GetAllNamesTest extends TestCase
                     ],
                 ],
                 'expectedResult' => [
-                    '4',
+                    '1',
                 ],
             ],
             [
                 'standardsData' => [
                     [
-                        AttributeCodes::ATTRIBUTE_NAME => '1',
                         AttributeCodes::ATTRIBUTE_ALPHA2 => '3',
                         AttributeCodes::ATTRIBUTE_ALPHA3 => '4',
+                        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => '4',
                     ],
                 ],
                 'expectedResult' => [],
