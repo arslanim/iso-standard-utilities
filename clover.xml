@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1632860276">
-  <project timestamp="1632860276">
+<coverage generated="1632941555">
+  <project timestamp="1632941555">
     <file name="/app/src/StandardSearchUtility.php">
       <class name="arslanimamutdinov\ISOStandardUtilities\StandardSearchUtility" namespace="global">
         <metrics complexity="26" methods="18" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="33" coveredstatements="33" elements="51" coveredelements="51"/>
@@ -60,7 +60,7 @@
     </file>
     <file name="/app/src/StandardSearchUtilityService.php">
       <class name="arslanimamutdinov\ISOStandardUtilities\StandardSearchUtilityService" namespace="global">
-        <metrics complexity="18" methods="18" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="23" elements="41" coveredelements="41"/>
+        <metrics complexity="18" methods="18" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="30" elements="48" coveredelements="48"/>
       </class>
       <line num="7" type="method" name="getAllNames" visibility="public" complexity="1" crap="1" count="4"/>
       <line num="9" type="stmt" count="4"/>
@@ -91,20 +91,27 @@
       <line num="101" type="method" name="getStandardsDataByAttributeCode" visibility="public" complexity="1" crap="1" count="9"/>
       <line num="106" type="stmt" count="9"/>
       <line num="107" type="stmt" count="9"/>
+      <line num="108" type="stmt" count="9"/>
+      <line num="109" type="stmt" count="9"/>
       <line num="113" type="method" name="existByAlpha2" visibility="public" complexity="1" crap="1" count="6"/>
       <line num="115" type="stmt" count="6"/>
       <line num="116" type="stmt" count="6"/>
+      <line num="117" type="stmt" count="6"/>
       <line num="121" type="method" name="existByAlpha3" visibility="public" complexity="1" crap="1" count="7"/>
       <line num="123" type="stmt" count="7"/>
       <line num="124" type="stmt" count="7"/>
+      <line num="125" type="stmt" count="7"/>
       <line num="129" type="method" name="existByNumericCode" visibility="public" complexity="1" crap="1" count="7"/>
       <line num="131" type="stmt" count="7"/>
       <line num="132" type="stmt" count="7"/>
+      <line num="133" type="stmt" count="7"/>
       <line num="137" type="method" name="existByAttributeCode" visibility="public" complexity="1" crap="1" count="9"/>
       <line num="142" type="stmt" count="9"/>
       <line num="143" type="stmt" count="9"/>
-      <metrics loc="148" ncloc="122" classes="1" methods="18" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="23" elements="41" coveredelements="41"/>
+      <line num="144" type="stmt" count="9"/>
+      <line num="145" type="stmt" count="9"/>
+      <metrics loc="148" ncloc="122" classes="1" methods="18" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="30" elements="48" coveredelements="48"/>
     </file>
-    <metrics files="2" loc="329" ncloc="256" classes="2" methods="36" coveredmethods="36" conditionals="0" coveredconditionals="0" statements="56" coveredstatements="56" elements="92" coveredelements="92"/>
+    <metrics files="2" loc="329" ncloc="256" classes="2" methods="36" coveredmethods="36" conditionals="0" coveredconditionals="0" statements="63" coveredstatements="63" elements="99" coveredelements="99"/>
   </project>
 </coverage>
