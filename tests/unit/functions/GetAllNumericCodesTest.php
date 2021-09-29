@@ -1,6 +1,6 @@
 <?php
 
-namespace arslanimamutdinov\ISOStandardUtilities\tests\unit;
+namespace arslanimamutdinov\ISOStandardUtilities\tests\unit\functions;
 
 use arslanimamutdinov\ISOStandardUtilities\codes\AttributeCodes;
 use arslanimamutdinov\ISOStandardUtilities\StandardSearchUtility;
@@ -8,40 +8,28 @@ use arslanimamutdinov\ISOStandardUtilities\StandardSearchUtilityService;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class StandardSearchUtilityTest
- * @package arslanimamutdinov\ISOStandardUtilities\tests\unit
- * @group unit-utility
+ * Class GetAllNumericCodesTest
+ * @package arslanimamutdinov\ISOStandardUtilities\tests\unit\functions
+ * @group unit-utility-functions
  */
-class StandardSearchUtilityTest extends TestCase
+class GetAllNumericCodesTest extends TestCase
 {
     /**
-     * @var StandardSearchUtilityService
-     */
-    private $standardSearchUtilityService;
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->standardSearchUtilityService = new StandardSearchUtilityService();
-    }
-
-    /**
-     * @dataProvider getTestGetAllNamesData
+     * @dataProvider getTestGetAllNumericCodes
      * @param array $standardsData
      * @param array $expectedResult
      */
-    public function testGetAllNames(array $standardsData, array $expectedResult): void
+    public function testGetAllNumericCodes(array $standardsData, array $expectedResult): void
     {
-        $utilityResult = StandardSearchUtility::getAllNames($standardsData);
-        $serviceResult = $this->standardSearchUtilityService->getAllNames($standardsData);
+        $utilityResult = StandardSearchUtility::getAllNumericCodes($standardsData);
+        $serviceResult = (new StandardSearchUtilityService())->getAllNumericCodes($standardsData);
 
         $this->assertEquals($expectedResult, $utilityResult);
         $this->assertEquals($expectedResult, $serviceResult);
         $this->assertEquals($utilityResult, $serviceResult);
     }
 
-    public function getTestGetAllNamesData(): array
+    public function getTestGetAllNumericCodes(): array
     {
         return [
             [
@@ -66,9 +54,9 @@ class StandardSearchUtilityTest extends TestCase
                     ],
                 ],
                 'expectedResult' => [
-                    '1',
-                    '5',
-                    '15',
+                    '4',
+                    '8',
+                    '18',
                 ],
             ],
             [
@@ -81,15 +69,15 @@ class StandardSearchUtilityTest extends TestCase
                     ],
                 ],
                 'expectedResult' => [
-                    '1',
+                    '4',
                 ],
             ],
             [
                 'standardsData' => [
                     [
+                        AttributeCodes::ATTRIBUTE_NAME => '1',
                         AttributeCodes::ATTRIBUTE_ALPHA2 => '3',
                         AttributeCodes::ATTRIBUTE_ALPHA3 => '4',
-                        AttributeCodes::ATTRIBUTE_NUMERIC_CODE => '4',
                     ],
                 ],
                 'expectedResult' => [],
