@@ -4,6 +4,12 @@
 
 This component provides features for supporting search iso standards raw data by attributes.
 
+## Installation
+
+```php
+composer require arslanimamutdinov/iso-standard-utilities
+```
+
 ## Terms and designations
 - alpha2 - two-letter codes (recommended as the general-purpose code);
 - alpha3 - three-letter codes;
