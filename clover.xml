@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1633553968">
-  <project timestamp="1633553968">
+<coverage generated="1647791788">
+  <project timestamp="1647791788">
     <file name="/app/src/StandardSearchUtility.php">
       <class name="arslanimamutdinov\ISOStandardUtilities\StandardSearchUtility" namespace="global">
-        <metrics complexity="26" methods="18" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="33" coveredstatements="33" elements="51" coveredelements="51"/>
+        <metrics complexity="26" methods="18" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="29" elements="47" coveredelements="47"/>
       </class>
       <line num="13" type="method" name="getAllNames" visibility="public" complexity="1" crap="1" count="4"/>
       <line num="15" type="stmt" count="4"/>
@@ -30,18 +30,14 @@
       <line num="109" type="method" name="getAllByAttributeCodeValues" visibility="public" complexity="2" crap="2" count="57"/>
       <line num="114" type="stmt" count="57"/>
       <line num="115" type="stmt" count="57"/>
-      <line num="116" type="stmt" count="57"/>
       <line num="117" type="stmt" count="57"/>
       <line num="118" type="stmt" count="50"/>
-      <line num="119" type="stmt" count="57"/>
       <line num="124" type="method" name="getByAlpha2" visibility="public" complexity="1" crap="1" count="6"/>
       <line num="126" type="stmt" count="6"/>
       <line num="129" type="method" name="getByAlpha3" visibility="public" complexity="1" crap="1" count="6"/>
       <line num="131" type="stmt" count="6"/>
       <line num="134" type="method" name="getByNumericCode" visibility="public" complexity="1" crap="1" count="7"/>
       <line num="136" type="stmt" count="7"/>
-      <line num="137" type="stmt" count="7"/>
-      <line num="138" type="stmt" count="7"/>
       <line num="143" type="method" name="getStandardsDataByAttributeCode" visibility="public" complexity="4" crap="4" count="28"/>
       <line num="148" type="stmt" count="28"/>
       <line num="149" type="stmt" count="24"/>
@@ -56,11 +52,11 @@
       <line num="171" type="stmt" count="7"/>
       <line num="174" type="method" name="existByAttributeCode" visibility="public" complexity="2" crap="2" count="29"/>
       <line num="179" type="stmt" count="29"/>
-      <metrics loc="181" ncloc="134" classes="1" methods="18" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="33" coveredstatements="33" elements="51" coveredelements="51"/>
+      <metrics loc="182" ncloc="135" classes="1" methods="18" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="29" elements="47" coveredelements="47"/>
     </file>
     <file name="/app/src/StandardSearchUtilityService.php">
       <class name="arslanimamutdinov\ISOStandardUtilities\StandardSearchUtilityService" namespace="global">
-        <metrics complexity="18" methods="18" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="30" elements="48" coveredelements="48"/>
+        <metrics complexity="18" methods="18" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="18" elements="36" coveredelements="36"/>
       </class>
       <line num="7" type="method" name="getAllNames" visibility="public" complexity="1" crap="1" count="4"/>
       <line num="9" type="stmt" count="4"/>
@@ -90,28 +86,16 @@
       <line num="98" type="stmt" count="7"/>
       <line num="101" type="method" name="getStandardsDataByAttributeCode" visibility="public" complexity="1" crap="1" count="9"/>
       <line num="106" type="stmt" count="9"/>
-      <line num="107" type="stmt" count="9"/>
-      <line num="108" type="stmt" count="9"/>
-      <line num="109" type="stmt" count="9"/>
       <line num="113" type="method" name="existByAlpha2" visibility="public" complexity="1" crap="1" count="6"/>
       <line num="115" type="stmt" count="6"/>
-      <line num="116" type="stmt" count="6"/>
-      <line num="117" type="stmt" count="6"/>
       <line num="121" type="method" name="existByAlpha3" visibility="public" complexity="1" crap="1" count="7"/>
       <line num="123" type="stmt" count="7"/>
-      <line num="124" type="stmt" count="7"/>
-      <line num="125" type="stmt" count="7"/>
       <line num="129" type="method" name="existByNumericCode" visibility="public" complexity="1" crap="1" count="7"/>
       <line num="131" type="stmt" count="7"/>
-      <line num="132" type="stmt" count="7"/>
-      <line num="133" type="stmt" count="7"/>
       <line num="137" type="method" name="existByAttributeCode" visibility="public" complexity="1" crap="1" count="9"/>
       <line num="142" type="stmt" count="9"/>
-      <line num="143" type="stmt" count="9"/>
-      <line num="144" type="stmt" count="9"/>
-      <line num="145" type="stmt" count="9"/>
-      <metrics loc="148" ncloc="122" classes="1" methods="18" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="30" elements="48" coveredelements="48"/>
+      <metrics loc="149" ncloc="123" classes="1" methods="18" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="18" elements="36" coveredelements="36"/>
     </file>
-    <metrics files="2" loc="329" ncloc="256" classes="2" methods="36" coveredmethods="36" conditionals="0" coveredconditionals="0" statements="63" coveredstatements="63" elements="99" coveredelements="99"/>
+    <metrics files="2" loc="331" ncloc="258" classes="2" methods="36" coveredmethods="36" conditionals="0" coveredconditionals="0" statements="47" coveredstatements="47" elements="83" coveredelements="83"/>
   </project>
 </coverage>
